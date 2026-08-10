@@ -1,0 +1,12 @@
+services:
+  ai-stock-screener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${DOCKERHUB_USERNAME:-armanshikalgar}/ai-stock-screener:latest
+    container_name: ai-stock-screener
+    env_file:
+      - .env
+    ports:
+      - "8501:8501"
+    restart: unless-stopped

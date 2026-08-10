@@ -1,0 +1,49 @@
+# Virtual environments
+.venv/
+myenv/
+venv/
+
+# Environment / secrets
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Git
+.git/
+.gitignore
+
+# IDEs
+.vscode/
+.idea/
+
+# Runtime / generated data
+data/
+logs/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+
+# Large demo/media files are not needed inside the runtime image
+imgs/video.mp4

@@ -1,22 +1,41 @@
+# Python virtual environments
 .venv/
 myenv/
+venv/
 
+# Python cache / compiled files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
+# Environment variables / secrets
 .env
+.env.*
 
+# Runtime / generated data
 data/
 logs/
+*.log
 
+# Build / packaging
 *.exe
 build/
 dist/
 *.spec
+*.egg-info/
 
+# IDEs
 .vscode/
 .idea/
 
-# Keep the trained ML model required by the application
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Trained ML models
+# Ignore all models except the model required by the application
 models/*
 !models/crossover_model.pkl
