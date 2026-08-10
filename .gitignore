@@ -1,0 +1,22 @@
+.venv/
+myenv/
+
+__pycache__/
+*.pyc
+
+.env
+
+data/
+logs/
+
+*.exe
+build/
+dist/
+*.spec
+
+.vscode/
+.idea/
+
+# Keep the trained ML model required by the application
+models/*
+!models/crossover_model.pkl

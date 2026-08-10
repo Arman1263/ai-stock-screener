@@ -1,0 +1,11 @@
+pandas
+numpy
+python-dotenv
+scikit-learn
+joblib
+streamlit
+smartapi-python
+pyotp
+logzero
+websocket-client
+pycryptodome
