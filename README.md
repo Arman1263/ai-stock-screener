@@ -14,9 +14,9 @@ https://ai-stock-screener-by-arman.streamlit.app/
 ```
 
 ## Notice
-```
+
 Market closes around 4:00 pm so then API Key will not work after market closes. You will get live updates on next day then, when market starts...
-```
+
 
 ### Core Pipeline
 
