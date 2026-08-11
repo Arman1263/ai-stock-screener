@@ -51,6 +51,47 @@ def initialize_system():
 
 provider, processor = initialize_system()
 
+# ============================================================
+# MARKET FEED CONTROL
+# ============================================================
+
+if "feed_running" not in st.session_state:
+    # The WebSocket connects asynchronously in a background thread.
+    # provider.connected may still be False immediately after connect()
+    # even though the connection is being established.
+    st.session_state.feed_running = True
+
+control_col1, control_col2 = st.columns([1, 4])
+
+with control_col1:
+
+    if st.session_state.feed_running:
+
+        if st.button(
+            "⏹ Stop Market Feed",
+            use_container_width=True,
+        ):
+            provider.disconnect()
+            st.session_state.feed_running = False
+            st.rerun()
+
+    else:
+
+        if st.button(
+            "▶ Start Market Feed",
+            use_container_width=True,
+        ):
+            provider.connect()
+            st.session_state.feed_running = True
+            st.rerun()
+
+with control_col2:
+
+    if st.session_state.feed_running:
+        st.success("🟢 Market feed running • Data source: Angel One")
+    else:
+        st.warning("🔴 Market feed stopped")
+
 
 # ============================================================
 # HEADER
@@ -70,6 +111,13 @@ st.caption(
 
 @st.fragment(run_every=1)
 def live_dashboard():
+
+    if not st.session_state.feed_running:
+        st.info(
+            "Market feed is stopped. "
+            "Click 'Start Market Feed' to resume live data."
+        )
+        return
 
     ticks = provider.generate_ticks()
 
